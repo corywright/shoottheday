@@ -12,6 +12,7 @@ settings.TEMPLATE_ROOT = os.path.join(project_root,'templates')
 settings.DOMAIN = 'isshot.com'
 # the following translates to ../isshot.com.db
 settings.DB = 'sqlite://%s.db' % os.path.join(os.path.dirname(project_root), settings.DOMAIN)
+settings.DEBUG = False
 
 class Redirection(Model): pass
 
