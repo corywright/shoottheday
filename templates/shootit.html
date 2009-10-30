@@ -1,0 +1,6 @@
+{% parent base.html %}
+{% block title %}isshot.com{% endblock %}
+{% block main %}
+{% include _shootit_form.html %}
+{% if errors: %}<ul>{% for error in errors: %}<li>{{error}}</li>{% :endfor %}</ul>{% :endif %}
+{% endblock main %}

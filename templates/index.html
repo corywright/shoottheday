@@ -1,0 +1,11 @@
+{% parent base.html %}
+{% block title %}isshot.com{% endblock %}
+{% block main %}
+
+{% include _shootit_form.html %}
+
+<h2>Popular Shootings</h2>
+{% for redirection in redirections: %}
+  <a href="http://{{redirection.label}}.{{settings.DOMAIN}}">{{redirection.label}}.{{settings.DOMAIN}}</a><br/>
+{% :endfor %}
+{% endblock main %}
