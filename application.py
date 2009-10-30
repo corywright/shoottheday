@@ -3,9 +3,9 @@ import os, sys, re
 project_root = os.path.abspath(os.path.dirname(__file__))
 sys.path.insert(0, project_root)
 
-from web.app import Application, Response, find_url
+from web.app import Application, Response
 from web.template import Template
-from web.orm import Model, HasMany, HasOne
+from web.orm import Model
 from web.util import settings
 
 settings.TEMPLATE_ROOT = os.path.join(project_root,'templates')
