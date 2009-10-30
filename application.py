@@ -38,9 +38,10 @@ def cleanup_label(label):
   return '.'.join(parts)
 
 def index(request):
+  dot_domain = '.%s' % settings.DOMAIN
   host = request.environ['HTTP_HOST']
   host = host.split(':')[0] if ':' in host else host
-  label = host.split('.')[0] if '.' in host else host
+  label = cleanup_label(host.split(dot_domain)[0] if dot_domain in host else host)
   if host == settings.DOMAIN or host == 'www.%s' % settings.DOMAIN:
     redirections = Redirection.select("where counter > 0 order by counter desc limit 5")
     return page("templates/index.html", {'redirections':redirections})
