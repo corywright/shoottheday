@@ -63,9 +63,9 @@ def shootit(request):
     label = cleanup_label(orig_label)
     destination = request.POST['destination']
     if label == "":
-      errors.append("Your label (%s) reduced to nothing, and is invalid" % orig_label)
+      errors.append("Your label (%s) is invalid. Shoot something else." % orig_label)
     elif Redirection.select("where label = {label}", {'label':label}):
-      errors.append('that label already exists')
+      errors.append('That label already exists')
     else:
       if not destination.startswith('http://'): destination = 'http://%s' % destination
       Redirection(label=label, destination=destination, counter=0).save()
